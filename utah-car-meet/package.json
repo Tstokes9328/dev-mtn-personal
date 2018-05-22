@@ -1,8 +1,14 @@
 {
   "name": "utah-car-meet",
   "version": "0.1.0",
+  "main": "server/index.js",
+  "porxy": "http://localhost:3007",
   "private": true,
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "massive": "^4.8.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-particles-js": "^2.1.3",

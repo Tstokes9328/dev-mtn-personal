@@ -12,6 +12,7 @@ canvas {
 
 .container {
     position: fixed;
+    border: solid 2px #8c8c8c;
     top: 20%;
     left: 38%;
     width: 325px;
