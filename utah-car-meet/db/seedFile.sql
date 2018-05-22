@@ -13,7 +13,8 @@ create table if not exists users (
     location varchar(60),
     age integer,
     profile_pic text,
-    car integer references users_car(id)
+    car integer references users_car(id),
+    auth_id text
 );
 
 create table if not exists users_car (
@@ -31,6 +32,6 @@ create table if not exists car_pics (
     pic_two text,
     pic_three text,
     pic_four text,
-    pic_five text
+    pic_five text,
     car integer references users_car(id)
 );

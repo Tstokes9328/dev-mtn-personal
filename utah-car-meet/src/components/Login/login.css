@@ -22,7 +22,8 @@ canvas {
     z-index: 1;
 }
 
-.btn-start {
+
+a > .btn-start {
     background-color: #23abff;
     border: none;
     color: white;

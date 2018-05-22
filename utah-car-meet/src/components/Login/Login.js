@@ -10,6 +10,7 @@ import Particles from 'react-particles-js';
 
 class Login extends Component {
     render() {
+        console.log(process.env.REACT_APP_LOGIN);
       return (
         <div>
             <Particles params={{
@@ -124,7 +125,8 @@ class Login extends Component {
             }}
             />
             <div className="container"> 
-                <Link to="/dashboard"><button className="btn-start">GET STARTED</button></Link>
+                <a href={process.env.REACT_APP_LOGIN}
+                ><button className="btn-start">GET STARTED</button></a>
             </div>
         </div>
       );
