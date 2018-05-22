@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+
+//StyleSheets
 import './reset.css';
 import './login.css';
 
@@ -121,7 +124,7 @@ class Login extends Component {
             }}
             />
             <div className="container"> 
-                <button className="btn-start">GET STARTED</button>
+                <Link to="/dashboard"><button className="btn-start">GET STARTED</button></Link>
             </div>
         </div>
       );
