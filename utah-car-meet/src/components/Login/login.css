@@ -1,0 +1,45 @@
+
+
+canvas {   
+    position: fixed; 
+     top: 0; 
+     left: 0;  
+     min-width: 100vw;
+     min-height: 100vh;   
+     background: #000000; 
+     z-index: 0; 
+}
+
+.container {
+    position: fixed;
+    top: 20%;
+    left: 38%;
+    width: 325px;
+    height: 400px;
+    background: #f2f2f2;
+    border-radius: 5px 5px 5px 5px;
+    z-index: 1;
+}
+
+.btn-start {
+    background-color: #23abff;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 250px;
+    border-radius: 3px 3px 3px 3px;
+    position: relative;
+    top: 75%;
+    left: 11%;
+    box-shadow: 1px 1px .5px #8c8c8c;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-start:active {
+    transform: translateY(1px);
+}
