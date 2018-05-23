@@ -77,8 +77,9 @@ app.get('/auth/callback', passport.authenticate('auth0', {
     failureRedirect: 'http://localhost:3000/#/'
 }))
 
-//End Points
+//End Points 
 app.get('/auth/user', controller.getUser);
+app.get('/usercar', controller.getUserCar);
 
 //Server Port
 app.listen(SERVER_PORT, () => console.log(`Firing on ${SERVER_PORT}`))

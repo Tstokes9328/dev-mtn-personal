@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 //Reducer Functions
 import {getUser} from '../../ducks/users';
+import {getUserCar} from '../../ducks/users';
 
 //Style Sheets
 import './reset.css';
@@ -11,10 +12,14 @@ class Profile extends Component {
 
     componentDidMount(){
         this.props.getUser();
+        this.props.getUserCar();
     }
 
     render() {
-        let {name, location, age, profile_pic,} = this.props.user;
+        let {name, location, age, profile_pic} = this.props.user;
+        // let {userCar} = this.props.userCar;
+        let [{car_name, year, car_bio}] = this.props.userCar;
+        console.log(this.props.userCar)
       return (
         <div>
             <div className="navigation">
@@ -92,6 +97,41 @@ class Profile extends Component {
             }
             </div>
             <hr className="section-break"/>
+
+                     {/* Car Bio Part */}
+
+             <div className="car-info-container">
+                {
+                    car_name ?
+                    <div>
+                        <h1>{car_name}</h1>
+                    </div>
+                    :
+                    <div>
+                        <h1>Please Update Car...</h1>
+                    </div>
+                }
+                {
+                    year ?
+                    <div>
+                        <h1>{year}</h1>
+                    </div>
+                    :
+                    <div>
+                        <h1>Update Car Year...</h1>
+                    </div>
+                }
+                {
+                    car_bio ?
+                    <div>
+                        <p>{car_bio}</p>
+                    </div>
+                    :
+                    <div>
+                        <p>Please Write A Bio..</p>
+                    </div>
+                }
+             </div>
         </div>
       );
     }
@@ -99,8 +139,9 @@ class Profile extends Component {
 
   function mapStateToProps(state){
     return {
-        user: state.user
+        user: state.user,
+        userCar: state.userCar
     }
   }
   
-  export default connect(mapStateToProps, {getUser})(Profile);
+  export default connect(mapStateToProps, {getUser, getUserCar})(Profile);

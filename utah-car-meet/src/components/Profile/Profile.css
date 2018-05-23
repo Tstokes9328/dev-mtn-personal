@@ -1,3 +1,5 @@
+
+
 body {
     height: 100%;
     width: 100%;
@@ -46,6 +48,7 @@ body {
     width: 25%;
     height: 100%;
     background: #000000;
+    
 }
 
 .name-title > h1 {
@@ -87,6 +90,7 @@ body {
     font-size: 30px;
     margin-top: 15px;
     margin-left: 25px;
+    
 }
 
 .location-content {
