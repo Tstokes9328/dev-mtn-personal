@@ -1,0 +1,149 @@
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.navigation {
+    width: 100%;
+    height: 10vh;
+    background-color: #000000;
+    box-shadow: 1px 1px 2px #8c8c8c;
+}
+
+.personal-info {
+    display: block;
+    width: 90%;
+    height: 60vh;
+    margin: 0 auto;
+    padding-top: 45px;
+    animation-name: appear;
+    animation-duration: 1s;
+}
+
+.img-container {
+    float: left;
+    height: 350px;
+    width: 350px;
+    box-shadow: 1px 1px 1px 1px #8c8c8c;
+    margin-left: 50px;
+}
+
+.picture {
+    width: 350px;
+    height: 350px;
+}
+
+.name-container {
+    display: block;
+    box-shadow: 1px 1px 1px 1px #8c8c8c;
+    width: 50%;
+    height: 15%;
+    margin-left: 450px;
+}
+
+.name-title {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    background: #000000;
+}
+
+.name-title > h1 {
+    color: white;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 40px;
+}
+
+.name-content {
+    display: inline-block;
+}
+
+.name-content > h1 {
+    color: #000000;
+    font-size: 30px;
+    margin-left: 40px;
+}
+
+
+.location-container {
+    display: block;
+    box-shadow: 1px 1px 1px 1px #8c8c8c;
+    margin-top: 82px;
+    width: 50%;
+    height: 15%;
+    margin-left: 450px;
+}
+
+.location-title {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    background: #000000;
+}
+
+.location-title > h1 {
+    color: white;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+.location-content {
+    display: inline-block;
+}
+
+.location-content > h1 {
+    color: #000000;
+    font-size: 30px;
+    margin-left: 40px;
+}
+
+.age-container {
+    display: block;
+    box-shadow: 1px 1px 1px 1px #8c8c8c;
+    margin-top: 82px;
+    width: 50%;
+    height: 15%;
+    margin-left: 450px;
+}
+
+.age-title {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    background: #000000;
+}
+
+.age-title > h1 {
+    color: white;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 47px;
+}
+
+.age-content {
+    display: inline-block;
+}
+
+.age-content > h1 {
+    color: #000000;
+    font-size: 30px;
+    margin-left: 40px;
+}
+
+.section-break {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* -- animation -- */
+@keyframes appear{
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

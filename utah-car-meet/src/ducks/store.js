@@ -1,4 +1,6 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import promiseMiddleware from 'redux-promise-middleware';
 import users from './users';
 
-export default (createStore(users));
+const middleware = applyMiddleware(promiseMiddleware());
+export default createStore(users, middleware);

@@ -1,16 +1,21 @@
 import React, { Component } from "react";
-
+import {Link} from 'react-router-dom';
 
 //Style Sheets
-import './dashboard.css';
+import "./reset.css";
+import "./dashboard.css";
+
+//Other Technologies
+
 
 class Dashboard extends Component {
   render() {
     return (
       <div>
-        Dashboard
+        <Link to="/profile">Profile</Link>
+          DASHBOARD
       </div>
-    )
+    );
   }
 }
 
