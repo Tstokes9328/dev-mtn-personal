@@ -12,7 +12,7 @@ canvas {
 
 .container {
     position: fixed;
-    border: solid 2px #8c8c8c;
+    border: solid 3px #8c8c8c;
     top: 20%;
     left: 38%;
     width: 325px;
@@ -20,7 +20,18 @@ canvas {
     background: #f2f2f2;
     border-radius: 5px 5px 5px 5px;
     z-index: 1;
+    animation-name: appear;
+    animation-duration: 3s;
 }
+
+.logo{
+    position: fixed;
+    width: 275px;
+    height: 275px;
+    left: 40%;
+    top: 25%;
+}
+
 
 
 a > .btn-start {
@@ -44,4 +55,16 @@ a > .btn-start {
 
 .btn-start:active {
     transform: translateY(1px);
+}
+
+/* -- Animations -- */
+
+@keyframes appear{
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

@@ -125,6 +125,7 @@ class Login extends Component {
             }}
             />
             <div className="container"> 
+                <img src={require('../../images/real-logo.png')} className="logo" />
                 <a href={process.env.REACT_APP_LOGIN}
                 ><button className="btn-start">GET STARTED</button></a>
             </div>
