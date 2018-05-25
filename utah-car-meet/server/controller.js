@@ -16,5 +16,15 @@ module.exports = {
         } else {
             res.status(404).send('error')
         }
+    },
+
+    getUserCarPics: (req, res) => {
+        if(req.user){
+            req.app.get('db').get_user_car_pics().then(pics => {
+                res.status(200).send(pics);
+            })
+        } else {
+            res.status(404).send('error')
+        }
     }
 }

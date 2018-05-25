@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    height: 10vh;   
+    background: #000000;
+}
+
+/* .bg-picture-container {
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.45)), url('../../images/car-meet3.jpg');
+    background-size: cover;
+} */
+ 
+.title {
+    width: 100%;
+    height: 100vh;
+    padding-top: 13%;
+}
+
+.title > h1 {
+    width: 80%;
+    color: #f2f2f2;
+    font-size: 50px;
+    margin-left: 15px;
+    font-family: 'IBM Plex Mono', monospace;
+
+}
+
+.about-container {
+    width: 80%;
+    height: 30vh;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+
+.about-container > p {
+    text-align: center;
+    color: black;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+}
+
+.event-btn-container {
+    width: 80%;
+    height: 10vh;
+    margin: 0 auto;
+}
+
+.btn {
+    background-color: #FFA500;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 41%;
+    margin-top: 10px;
+}
+
+/* -- Line Break -- */
+
+.line-break1 {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    height: 10vh;
+    padding-top: 30px;
+}
+
+.line-break1 > h3 {
+    display: inline-block;
+    left: 40%;
+    font-size: 20px;
+    width: 20%;
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    background: white;
+}
+
+.line-break1 > h4 {
+    display: inline-block;
+    left: 40%;
+    font-size: 20px;
+    width: 20%;
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    background: white;
+}
+
+.line-break2 {
+    display:  inline-block;
+    width: 40%;
+    height: 1px;
+    background: #8c8c8c;
+}
+
+/* ------------------- */
+
