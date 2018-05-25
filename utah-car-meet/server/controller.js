@@ -10,7 +10,8 @@ module.exports = {
 
     getUserCar: (req, res) => {
         if(req.user){
-        req.app.get('db').get_user_car().then(car => {
+        let {id} = req.user;
+        req.app.get('db').get_user_car([id]).then(car => {
             res.status(200).send(car);
         })
         } else {
@@ -20,7 +21,8 @@ module.exports = {
 
     getUserCarPics: (req, res) => {
         if(req.user){
-            req.app.get('db').get_user_car_pics().then(pics => {
+        let {id} = req.user
+            req.app.get('db').get_user_car_pics([id]).then(pics => {
                 res.status(200).send(pics);
             })
         } else {

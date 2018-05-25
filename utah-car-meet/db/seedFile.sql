@@ -4,7 +4,7 @@ create table if not exists events(
     location varchar(50),
     date varchar(20),
     event_picture text,
-    attendees integer references user(id)
+    users_id integer references user(id)
 );
 
 create table if not exists users (
@@ -13,7 +13,7 @@ create table if not exists users (
     location varchar(60),
     age integer,
     profile_pic text,
-    car integer references users_car(id),
+    car_id integer references users_car(id),
     auth_id text
 );
 
@@ -22,7 +22,7 @@ create table if not exists users_car (
     car_name varchar(25),
     year integer,
     car_bio varchar(400),
-    owner integer references users(id),
+    owner_id integer references users(id),
     pictures integer references car_pics(id)
 );
 
@@ -33,5 +33,5 @@ create table if not exists car_pics (
     pic_three text,
     pic_four text,
     pic_five text,
-    car integer references users_car(id)
+    car_id integer references users_car(id)
 );

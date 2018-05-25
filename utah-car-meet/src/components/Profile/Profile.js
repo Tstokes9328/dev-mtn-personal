@@ -231,7 +231,7 @@ class Profile extends Component {
             </div>
           )}
         </div>
-        <Link to="/userinfo"><button>Update</button></Link>
+        <Link to="/update/userinfo"><button>Update</button></Link>
       </Fragment>
       </MuiThemeProvider>
     );
