@@ -79,8 +79,6 @@ app.get('/auth/callback', passport.authenticate('auth0', {
 
 //End Points 
 app.get('/auth/user', controller.getUser);
-app.get('/usercar', controller.getUserCar);
-app.get('/usercarpics', controller.getUserCarPics);
 
 //Server Port
 app.listen(SERVER_PORT, () => console.log(`Firing on ${SERVER_PORT}`))

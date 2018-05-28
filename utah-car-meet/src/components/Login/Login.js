@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 
 //StyleSheets
 import './reset.css';
@@ -125,7 +124,7 @@ class Login extends Component {
             }}
             />
             <div className="container"> 
-                <img src={require('../../images/real-logo.png')} className="logo" />
+                <img src={require('../../images/real-logo.png')} className="logo" alt="logo"/>
                 <a href={process.env.REACT_APP_LOGIN}
                 ><button className="btn-start">GET STARTED</button></a>
             </div>

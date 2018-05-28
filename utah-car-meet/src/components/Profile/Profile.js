@@ -1,20 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-//Material UI
-import CssBaseline from "@material-ui/core/CssBaseline";
-
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import Button from '@material-ui/core/Button';
-
 //Reducer Functions
-import { getUser, getUserCar, getUserCarPics } from "../../ducks/users";
+import { getUser } from "../../ducks/users";
 
 //Style Sheets
 import "./Profile.css";
@@ -22,36 +11,15 @@ import "./Profile.css";
 class Profile extends Component {
   componentDidMount() {
     this.props.getUser();
-    this.props.getUserCar();
-    this.props.getUserCarPics();
   }
 
   render() {
-    //MUI Theme
-    const theme = createMuiTheme({
-      palette: {
-        primary: { main: purple[500] }, // Purple and green play nicely together.
-        secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
-      },
-    });
-
-    let { name, location, age, profile_pic } = this.props.user;
-    let [{ car_name, year, car_bio }] = this.props.userCar;
-    let [
-      { pic_one, pic_two, pic_three, pic_four, pic_five }
-    ] = this.props.userCarPics;
+    let { name, location, age, profile_pic, car_name, year, car_bio, pic_one, pic_two, pic_three } = this.props.user;
+    
+    console.log(this.props.user)
 
     return (
-      <MuiThemeProvider theme={theme}>
-      <Fragment>
-        <CssBaseline />
-        <AppBar position="static" color="primary">
-          <Toolbar>
-            <Typography variant="title" color="secondary">
-              PROFILE
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <div>
         <div className="navigation">
           <div className="nav-btns-container">
             <ul>
@@ -64,6 +32,7 @@ class Profile extends Component {
             </ul>
           </div>
         </div>
+
         <div className="personal-info">
           {profile_pic ? (
             <div className="img-container">
@@ -183,7 +152,6 @@ class Profile extends Component {
         </div>
         <hr className="section-break" />
 
-        {/* Car Pics */}
         <div className="car-pics-container">
           {pic_one ? (
             <div>
@@ -212,42 +180,19 @@ class Profile extends Component {
               <h1>No Picture</h1>
             </div>
           )}
-          {pic_four ? (
-            <div>
-              <img src={pic_four} alt="" />
-            </div>
-          ) : (
-            <div>
-              <h1>No Picture</h1>
-            </div>
-          )}
-          {pic_five ? (
-            <div>
-              <img src={pic_five} alt="" />
-            </div>
-          ) : (
-            <div>
-              <h1>No Picture</h1>
-            </div>
-          )}
         </div>
         <Link to="/update/userinfo"><button>Update</button></Link>
-      </Fragment>
-      </MuiThemeProvider>
+        </div>
     );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    userCar: state.userCar,
-    userCarPics: state.userCarPics
+    user: state.user
   };
 }
 
 export default connect(mapStateToProps, {
-  getUser,
-  getUserCar,
-  getUserCarPics
+  getUser
 })(Profile);
