@@ -5,7 +5,6 @@ class StepTwo extends Component {
     render(){
         return (
             <div>
-                Car<input type="text"/>
                 Year<input type="text"/>
                 Car-Bio<input type="text"/>
                 <Link to="/update/userinfo"><button>previous</button></Link>

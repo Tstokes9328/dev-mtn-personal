@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+
+//Other Components
+import Navbar from '../NavBar/Navbar';
+import Event from '../Event/Event';
 
 //Style Sheets
 import "./reset.css";
@@ -8,34 +13,52 @@ import "./dashboard.css";
 //Other Technologies
 
 class Dashboard extends Component {
+  constructor(){
+    super()
+
+    this.state = {
+      events: []
+    }
+
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.getNewEvents = this.getNewEvents.bind(this);
+    this.removeEvent = this.removeEvent.bind(this);
+  }
+
+  componentDidMount(){
+    this.getNewEvents();
+  }
+
+  getNewEvents(){
+    axios.get('/api/events').then((response) => {
+      this.setState({events: response.data})
+      console.log(this.state.events)
+    })
+  }
+
+  removeEvent(id){
+    axios.delete(`/api/event/${id}`).then((response) => {
+      console.log(response)
+      this.getNewEvents();
+    })
+  }
+
   render() {
+    const mappedEvents = this.state.events.map((element, index) => {
+      return (
+        <Event id={element.id} title={element.title} location={element.location} date={element.date} event_picture={element.event_picture} remove={this.removeEvent}/>
+      )
+    })
+
     return (
       <div>
-        <div className="navbar">
-          <div>
-            <Link to="/profile">Profile</Link>
-          </div>
-        </div>
-        {/* Line Break */}
-          <div className="line-break1">
-            <div className="line-break2" />
-              <h3>About Us</h3>
-            <div className="line-break2" />
-          </div>
-        {/* End Of Line Break */}
-        <div className="about-container">
-          <p>Utah Car Meets is a community of like minded indivuals who have a passion for cars that are based in Utah. Our purpose is to have a platform where Utah car enthusiasts can network with one another and create an easier to host and/or find local car meets. </p>
-        </div>
-        {/* Line Break */}
-          <div className="line-break1">
-            <div className="line-break2" />
-              <h4>Create Event</h4>
-            <div className="line-break2" />
-          </div>
-        {/* End Of Line Break */}
-        <div className="event-btn-container">
-          <button className="btn">Create Event</button>
-        </div>
+        <Navbar />
+        
+        {mappedEvents}
+        
+        <Link to="/createevent"><button>Create A Meet</button></Link>
+
+        <Link to="/profile"><button>Profile</button></Link>      
       </div>
     );
   }

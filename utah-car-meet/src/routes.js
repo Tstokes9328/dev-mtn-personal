@@ -6,6 +6,8 @@ import Login from './components/Login/Login';
 import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import UpdateDisplay from './components/Updates/UpdateDisplay';
+import CreateEvent from './components/Create-Event/CreateEvent';
+import EventPage from './components/EventPage/EventPage';
 
 export default (
     <Switch>
@@ -13,5 +15,7 @@ export default (
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/profile" component={Profile}/>
         <Route path="/update/userinfo" component={UpdateDisplay}/>
+        <Route path="/createevent" component={CreateEvent}/>
+        <Route path="/event/page/:id" component={EventPage}/>
     </Switch>
 )
