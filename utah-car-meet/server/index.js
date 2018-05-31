@@ -84,6 +84,7 @@ app.get('/api/events', controller.getEvents);
 app.post('/api/newevent', controller.createEvent);
 app.delete('/api/event/:id', controller.deleteEvent);
 app.get('/event/page/:id', controller.getEventPage);
+app.put('/api/event/:id', controller.updateEvent);
 
 //Server Port
 app.listen(SERVER_PORT, () => console.log(`Firing on ${SERVER_PORT}`))

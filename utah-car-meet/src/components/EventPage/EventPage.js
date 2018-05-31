@@ -1,30 +1,43 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 class EventPage extends Component {
     constructor(){
         super()
 
         this.state = {
-            event: []
+            title: '',
+            location: '',
+            date: '',
+            event_picture: ''
         }
     }
-    componentDidMount(){
+
+    componentWillMount(){
         let {id} = this.props.match.params;
         axios.get(`/event/page/${id}`).then((response) => {
-            this.setState({event: response.data})
+            console.log(response.data)
+            this.setState({
+                title: response.data[0].title,
+                location: response.data[0].location,
+                date: response.data[0].date,
+                event_picture: response.data[0].event_picture
+            })
         })
     }
+
     render(){
-        console.log(this.state.event)
+        let {id} = this.props.match.params;
+        console.log(this.state)
         return(
             <div>
                 Event Page
-                <h1>{this.state.event.title}</h1>
-                <h1>{this.state.event.location}</h1>
-                <h1>{this.state.event.date}</h1>
-                <img src={this.state.event.event_picture} alt="event picture" />
-                <button>Update Info</button>
+                <img src={this.state.event_picture} alt="event picture" />
+                <h1>{this.state.title}</h1>
+                <h1>{this.state.location}</h1>
+                <h1>{this.state.date}</h1>
+                <Link to={`/update/event/${id}`}><button>Update Info</button></Link>
             </div>
         )
     }

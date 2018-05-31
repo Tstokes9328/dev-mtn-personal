@@ -33,5 +33,13 @@ module.exports = {
         req.app.get('db').get_event_page([id]).then((eventPage) => {
             res.send(eventPage)
         })
+    },
+
+    updateEvent: (req, res) => {
+        let {id} = req.params;
+        let {title, location, date, event_picture} = req.body;
+        req.app.get('db').update_event([title, location, date, event_picture, id]).then(([updatedEvent]) => {
+            res.status(200).send(updatedEvent);
+        })
     }
 }
