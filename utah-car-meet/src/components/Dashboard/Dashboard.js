@@ -34,7 +34,6 @@ class Dashboard extends Component {
   getNewEvents(){
     axios.get('/api/events').then((response) => {
       this.setState({events: response.data})
-      console.log(this.state.events)
     })
   }
 

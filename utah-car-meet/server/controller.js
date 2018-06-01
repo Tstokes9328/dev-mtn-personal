@@ -49,7 +49,8 @@ module.exports = {
     },
 
     getEventAttendees: (req, res) => {
-        req.app.get('db').get_event_attendees().then((attendees) => {
+        let {id} = req.params;
+        req.app.get('db').get_event_attendees([id]).then((attendees) => {
             res.status(200).send(attendees);
         })
     }

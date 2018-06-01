@@ -30,13 +30,12 @@ class EventPage extends Component {
     componentWillMount(){
         let {id} = this.props.match.params;
         axios.get(`/event/page/${id}`).then((response) => {
-            console.log(response.data)
             this.setState({
                 title: response.data[0].title,
                 location: response.data[0].location,
                 date: response.data[0].date,
                 event_picture: response.data[0].event_picture
-            })
+            });
         })
         this.getEventAttendees();
     }
@@ -54,14 +53,14 @@ class EventPage extends Component {
     }
 
     getEventAttendees(){
-        axios.get('/event/attendees').then((response) => {
+        let {id} = this.props.match.params;
+        axios.get(`/event/attendees/${id}`).then((response) => {
             this.setState({attendees: response.data})
         })
     }
 
     render(){
         console.log(this.state.attendees)
-
         let {id} = this.props.match.params;
         let {user} = this.props;
 

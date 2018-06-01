@@ -88,7 +88,7 @@ app.get('/event/page/:id', controller.getEventPage);
 app.put('/api/event/:id', controller.updateEvent);
 
 //Event_Attendees End Points
-app.get('/event/attendees', controller.getEventAttendees);
+app.get('/event/attendees/:id', controller.getEventAttendees);
 app.post('/event/attendees', controller.attendEvent);
 
 //Server Port
