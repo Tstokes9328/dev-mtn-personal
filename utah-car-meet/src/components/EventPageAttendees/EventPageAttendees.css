@@ -1,0 +1,27 @@
+.attendee-container {
+    width: 200px;
+    height: 300px;
+    background-color: red;
+}
+
+.image-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.img-container > img {
+    height: auto;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.name-container {
+    display: block;
+    height: 50px;
+    width: 100%;
+}
+
+.name-container > h1 {
+    text-align: center;
+}

@@ -4,6 +4,7 @@ const initialState = {
     location: '',
     date: '',
     event_picture: ''
+
 }
 
 //Action Types

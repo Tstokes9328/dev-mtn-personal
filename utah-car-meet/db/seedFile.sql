@@ -6,6 +6,13 @@ create table if not exists events(
     event_picture text,
 );
 
+create table if not exists event_attendents (
+    id serial primary key,
+    profile_pic text,
+    name text,
+    event_id integer references events(id)
+);
+
 create table if not exists users (
     id serial primary key,
     auth_id text,
@@ -21,3 +28,4 @@ create table if not exists users (
     pic_two text,
     pic_three text
 );
+

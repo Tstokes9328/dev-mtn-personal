@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import {connect} from 'react-redux';
+
 
 //Other Components
 import Navbar from '../NavBar/Navbar';
@@ -49,7 +51,8 @@ class Dashboard extends Component {
         <Event id={element.id} title={element.title} location={element.location} date={element.date} event_picture={element.event_picture} remove={this.removeEvent}/>
       )
     })
-
+    
+    console.log(this.props)
     return (
       <div>
         <Navbar />

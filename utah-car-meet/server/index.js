@@ -77,14 +77,19 @@ app.get('/auth/callback', passport.authenticate('auth0', {
     failureRedirect: 'http://localhost:3000/#/'
 }))
 
-//End Points 
+//User End Points 
 app.get('/auth/user', controller.getUser);
 
+//Event End Points
 app.get('/api/events', controller.getEvents);
 app.post('/api/newevent', controller.createEvent);
 app.delete('/api/event/:id', controller.deleteEvent);
 app.get('/event/page/:id', controller.getEventPage);
 app.put('/api/event/:id', controller.updateEvent);
+
+//Event_Attendees End Points
+app.get('/event/attendees', controller.getEventAttendees);
+app.post('/event/attendees', controller.attendEvent);
 
 //Server Port
 app.listen(SERVER_PORT, () => console.log(`Firing on ${SERVER_PORT}`))
