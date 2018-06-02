@@ -14,7 +14,7 @@ export default (
     <Switch>
         <Route exact path="/" component={Login}/>
         <Route path="/dashboard" component={Dashboard}/>
-        <Route path="/profile/:id" component={Profile}/>
+        <Route path="/profile" component={Profile}/>
         <Route path="/update/userinfo" component={UpdateDisplay}/>
         <Route path="/createevent" component={CreateEvent}/>
         <Route path="/event/page/:id" component={EventPage}/>

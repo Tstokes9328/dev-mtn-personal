@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 export default function event(props){
     return (
         <div className="event">
+        
             <h6>{props.title}</h6>
             <h6>{props.location}</h6>
             <h6>{props.date}</h6>
