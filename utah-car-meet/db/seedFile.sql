@@ -12,6 +12,7 @@ create table if not exists event_attendents (
     profile_pic text,
     name text,
     event_id integer references events(id)
+    on delete cascade
 );
 
 create table if not exists users (
