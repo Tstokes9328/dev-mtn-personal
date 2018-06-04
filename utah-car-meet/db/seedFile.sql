@@ -4,7 +4,10 @@ create table if not exists events(
     location varchar(50),
     date varchar(20),
     event_picture text,
-    user_id integer
+    user_id integer,
+    host text,
+    host_pic text,
+    event_info text
 );
 
 create table if not exists event_attendents (

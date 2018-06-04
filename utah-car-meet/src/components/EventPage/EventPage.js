@@ -9,6 +9,7 @@ import {getUser} from '../../ducks/users';
 //Other Components
 import Navbar from '../NavBar/Navbar';
 import EventPageAttendess from '../EventPageAttendees/EventPageAttendees';
+import EventWeather from '../EventWeather/EventWeather';
 
 class EventPage extends Component {
     constructor(){
@@ -19,8 +20,11 @@ class EventPage extends Component {
             location: '',
             date: '',
             event_picture: '',
-
-            attendees: []
+            attendees: [],
+            temperature: '',
+            city_name: '',
+            weather_description: '',
+            temp_icon: ''
         }
 
         this.attendEvent = this.attendEvent.bind(this);
@@ -36,6 +40,21 @@ class EventPage extends Component {
                 date: response.data[0].date,
                 event_picture: response.data[0].event_picture
             });
+            const locationURL = response.data[0].location.split('').map((char) => {
+                if(char === ' '){
+                    return '+'
+                }
+                return char;
+            }).join('')
+            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${locationURL}&units=imperial&APPID=842c61b381e00afe0c506a4d25dc158c`).then((response) => {
+                console.log(response.data)
+            this.setState({
+                temperature: response.data.main.temp,
+                city_name: response.data.name,
+                temp_icon: response.data.weather[0].icon,
+                weather_description: response.data.weather[0].description
+            })
+            }).catch((error) => console.log(error))
         })
         this.getEventAttendees();
     }
@@ -60,7 +79,7 @@ class EventPage extends Component {
     }
 
     render(){
-        console.log(this.state.attendees)
+        console.log(this.state)
         let {id} = this.props.match.params;
         let {user} = this.props;
 
@@ -69,15 +88,26 @@ class EventPage extends Component {
                 <EventPageAttendess profile_pic={element.profile_pic} name={element.name}/>
             )
         })
+        
+        const weatherIcon = `http://openweathermap.org/img/w/${this.state.temp_icon}.png`
+
         return(
             <div>
                 <Navbar />
                 Event Page
-                <img src={this.state.event_picture} alt="event picture" />
-                <h1>{this.state.title}</h1>
-                <h1>{this.state.location}</h1>
-                <h1>{this.state.date}</h1>
-                <Link to={`/update/event/${id}`}><button>Update Info</button></Link>
+                <div>
+                    <img src={weatherIcon} alt="icon image" />
+                    <h1>{this.state.temperature} Degrees</h1>
+                    <h1>{this.state.city_name}</h1>
+                    <h1>{this.state.weather_decription}</h1>
+                </div>
+                <div>
+                    <img src={this.state.event_picture} alt="event picture" />
+                    <h1>{this.state.title}</h1>
+                    <h1>{this.state.location}</h1>
+                    <h1>{this.state.date}</h1>
+                    <Link to={`/update/event/${id}`}><button>Update Info</button></Link>
+                </div>
 
                 <div>
                     Are you Attending?<button onClick={() => this.attendEvent()}>Yes</button>
