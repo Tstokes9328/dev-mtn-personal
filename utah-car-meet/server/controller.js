@@ -15,8 +15,8 @@ module.exports = {
     },
 
     createEvent: (req, res) => {
-        let {title, location, date, event_picture, id} = req.body;
-        req.app.get('db').create_event([title, location, date, event_picture, id]).then(() => {
+        let {title, location, date, event_picture, id, host, host_pic, event_info} = req.body;
+        req.app.get('db').create_event([title, location, date, event_picture, id, host, host_pic, event_info]).then(() => {
             res.status(200).send('Event Created!')
         })
     },
@@ -37,8 +37,8 @@ module.exports = {
 
     updateEvent: (req, res) => {
         let {id} = req.params;
-        let {title, location, date, event_picture} = req.body;
-        req.app.get('db').update_event([title, location, date, event_picture, id]).then(([updatedEvent]) => {
+        let {title, location, date, event_picture, event_info} = req.body;
+        req.app.get('db').update_event([title, location, date, event_picture, event_info, id]).then(([updatedEvent]) => {
             res.status(200).send(updatedEvent);
         })
     },
