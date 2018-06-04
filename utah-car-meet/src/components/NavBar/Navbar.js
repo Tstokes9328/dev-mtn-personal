@@ -16,12 +16,17 @@ class Navbar extends Component {
         let {profile_pic} = this.props.user
         return(
             <div className="nav-container">
+                <Link to="/dashboard">
                 <div className="logo-container">
-                    LOGO
+                    <img src={require('../../images/car-meet-logo.png')} alt="UCM logo"/>
                 </div>
+                </Link>
+
+                <Link to="/profile">
                 <div className="image-container">
                     <img src={profile_pic} alt="Profile Picture"/>
                 </div>
+                </Link>
             </div>
         )
     }

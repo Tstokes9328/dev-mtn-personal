@@ -54,7 +54,7 @@ class Dashboard extends Component {
     
     console.log(this.props)
     return (
-      <div>
+      <div className="dash-container">
         <Navbar />
         
         {mappedEvents}
