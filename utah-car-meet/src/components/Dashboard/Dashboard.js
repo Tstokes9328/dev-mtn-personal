@@ -48,7 +48,7 @@ class Dashboard extends Component {
   render() {
     const mappedEvents = this.state.events.map((element, index) => {
       return (
-        <Event id={element.id} title={element.title} location={element.location} date={element.date} event_picture={element.event_picture} host={element.host} host_pic={element.host_pic} event_info={element.event_info} remove={this.removeEvent}/>
+        <Event id={element.id} title={element.title} location={element.location} date={element.date} event_picture={element.event_picture} host={element.host} host_pic={element.host_pic} event_info={element.event} remove={this.removeEvent}/>
       )
     })
     
