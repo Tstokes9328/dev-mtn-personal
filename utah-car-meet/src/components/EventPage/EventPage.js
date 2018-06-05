@@ -27,7 +27,9 @@ class EventPage extends Component {
             temperature: '',
             city_name: '',
             weather_description: '',
-            temp_icon: ''
+            temp_icon: '',
+
+            attending: false
         }
 
         this.attendEvent = this.attendEvent.bind(this);
@@ -75,13 +77,23 @@ class EventPage extends Component {
         let {profile_pic, name} = this.props.user;
         axios.post('event/attendees', {profile_pic, name, id}).then(() => {
             this.getEventAttendees();
-        })
+        }).catch(() => console.log('did not get attendents..'))
+        this.setState({attending: true})
     }
 
     getEventAttendees(){
         let {id} = this.props.match.params;
+        let {name} = this.props.user;
+        console.log(name)
         axios.get(`/event/attendees/${id}`).then((response) => {
-            this.setState({attendees: response.data})
+            const dataID = response.data.find((element) => {
+                return element.name === name;
+            })
+            console.log(response.data)
+            this.setState({
+                attendees: response.data,
+                attending: dataID ? true : false
+            })
         })
     }
 
@@ -97,7 +109,7 @@ class EventPage extends Component {
         
         const weatherIcon = `http://openweathermap.org/img/w/${this.state.temp_icon}.png`
 
-        console.log(this.state)
+        console.log(this.state.attending)
         return(
             <div>
                 <Navbar />
@@ -120,11 +132,25 @@ class EventPage extends Component {
                     <h1>{this.state.location}</h1>
                     <h1>{this.state.date}</h1>
                     <h3>{this.state.event_info}</h3>
+
+                    {
+                    user.name == this.state.host ?
                     <Link to={`/update/event/${id}`}><button>Update Info</button></Link>
+                    :
+                    <div />
+                    }
                 </div>
 
                 <div>
-                    Are you Attending?<button onClick={() => this.attendEvent()}>Yes</button>
+                    {
+                    !this.state.attending ?
+                    <div>
+                    <h1>Are you Attending?</h1>
+                    <button onClick={() => this.attendEvent()}>Yes</button>
+                    </div>
+                    :
+                    <h1>You Are Attending!</h1>
+                    }
                 </div>
                     {mappedAttendees}
             </div>
