@@ -1,35 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 .nav-container {
+    display: flex;
+    justify-content: space-between;
+
     width: 100%;
     height: 10vh;
-    background-color: #ffffff;
-    box-shadow: 1px 1px 10px #e0e0e0;
+    background-color: #23abff;
+    box-shadow: 1px 1px 10px #cfd8dc;
 }
 
-.logo-container {
-    display: inline-block;
-    width: 10%;
-    height: 100%;
-    margin-left: 25px;;
+.nav-picture {
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
 }
 
-.logo-container > img {
-    height: 100%;
-    width: 100%;
-}
-
-.image-container {
-    float: right;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    margin-top: 11px;
-    margin-right: 20px;
-}
-
-
-.image-container > img {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
+.nav-list {
+    display: flex;
+    justify-content: flex-end;
 }

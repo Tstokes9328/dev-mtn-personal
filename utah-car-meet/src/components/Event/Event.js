@@ -3,29 +3,36 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 
+//Style Sheets
+import './reset.css';
+import './Event.css';
+
 function event(props){
     return (
         <div className="event">
-            <div>
+            <div className="host-container">
+                <h1>Hosted By</h1>
                 <h6>{props.host}</h6>
-                <img src={props.host_pic} alt="host pic"/>
             </div>
 
-            <div>
-            <h6>{props.title}</h6>
-            <h6>{props.location}</h6>
-            <h6>{props.date}</h6>
-            <img src={props.event_picture} alt="image" />
-            {
-                props.user.name == props.host ?
-                <button onClick={() => props.remove(props.id)}>Delete</button>
-                :
-                <div>
-                </div>
-            }
-            <Link to={`/event/page/${props.id}`}><button>event</button></Link>
+            <div className="title-container">
+                <h1>{props.title}</h1>
+                <h2>{props.location}</h2>
+                <h3>{props.date}</h3>
             </div>
-            <hr />
+
+            <div className="location-container">
+                {
+                    props.user.name == props.host ?
+                    <button onClick={() => props.remove(props.id)}>Delete</button>
+                    :
+                    <div />
+                }
+            </div>
+            
+            <div className="btn-container">
+                <Link to={`/event/page/${props.id}`}><button>event</button></Link>
+            </div>
         </div>
     )
 }

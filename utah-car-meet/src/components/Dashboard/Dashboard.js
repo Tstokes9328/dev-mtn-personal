@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
+//Reducer Functions
+import {getUser} from '../../ducks/users';
 
 //Other Components
 import Navbar from '../NavBar/Navbar';
@@ -28,6 +30,7 @@ class Dashboard extends Component {
   }
 
   componentDidMount(){
+    this.props.getUser();
     this.getNewEvents();
   }
 
@@ -52,19 +55,34 @@ class Dashboard extends Component {
       )
     })
     
+    let {id} = this.props.user;
     console.log(this.props)
+
     return (
       <div className="dash-container">
         <Navbar />
-        
-        {mappedEvents}
-        
-        <Link to="/createevent"><button>Create A Meet</button></Link>
+        <div className="info-container">
+          <img src={require('../../images/car-meet-logo.png')} />
+          <div className="text-container">
+            <p>Welcome to Utah Car Meet! A place where Utah car enthusiasts can create an easier way to host car meet ups to meet new people with the same passion. Click the button below and get started! </p>
+            <div className="meet-btn-container">
+            <Link to="/createevent"><button>Create A Meet</button></Link>
+            </div>
+          </div>
+        </div>
 
-        <Link to="/profile"><button>Profile</button></Link>      
+        <div className="events-container">
+          {mappedEvents}
+        </div>   
       </div>
     );
   }
 }
 
-export default Dashboard;
+function mapStateToProps(state){
+  return {
+    user: state.users.user
+  }
+}
+
+export default connect(mapStateToProps, {getUser})(Dashboard);

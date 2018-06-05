@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
     height: 100%;
     width: 100%;
@@ -6,4 +8,75 @@ body {
 .dash-container {
     width: 100%;
     height: 100vh;
+    background-color: #fafafa;
+}
+
+.info-container {
+    position: relative;
+    width: 35%;
+    height: 65%;
+    top: 5%;
+    left: 3%;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 2px 2px 8px #cfd8dc;
+    background: white;
+}
+
+.info-container > img {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.text-container {
+    display: block;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.text-container > p {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.meet-btn-container {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+
+.meet-btn-container > a > button {
+        background-color: #23baff;
+        border: none;
+        border-radius: 2px 2px 2px 2px;
+        outline: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;   
+        font-family: 'Roboto', sans-serif;
+}
+
+.meet-btn-container > a > button:hover {
+    cursor: pointer;
+}
+
+.meet-btn-container > a > button:active {
+    transform: translateY(1px);
+}
+
+
+.events-container {
+    position: fixed;
+    right: 1%;
+    width: 60%;
+    height: 80vh;
+    top: 15%;
 }
