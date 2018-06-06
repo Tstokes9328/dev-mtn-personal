@@ -80,3 +80,17 @@ body {
     height: 80vh;
     top: 15%;
 }
+
+.donation-container {
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    bottom: 10%;
+    left: 6%;
+}
+
+.donation-sentence {
+    font-family: 'Roboto', sans-serif;
+    color: lightgray;
+    margin-top: 2.3%;
+}

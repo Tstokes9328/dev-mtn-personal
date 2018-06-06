@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import StripeCheckout from 'react-stripe-checkout';
 
 //Reducer Functions
 import {getUser} from '../../ducks/users';
@@ -10,24 +11,55 @@ import {getUser} from '../../ducks/users';
 import Navbar from '../NavBar/Navbar';
 import Event from '../Event/Event';
 
+//M-UI
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import TextField from '@material-ui/core/TextField';
+
 //Style Sheets
 import "./reset.css";
 import "./dashboard.css";
 
-//Other Technologies
+const style = {
+  color: 'black'
+}
+
+const style2 = {
+  color: "#23abff"
+}
 
 class Dashboard extends Component {
   constructor(){
     super()
 
     this.state = {
-      events: []
+      events: [],
+      open: false,
+      price: 0
     }
 
     this.componentDidMount = this.componentDidMount.bind(this);
     this.getNewEvents = this.getNewEvents.bind(this);
     this.removeEvent = this.removeEvent.bind(this);
+
+    this.handleChangePrice = this.handleChangePrice.bind(this);
   }
+
+  //Material-UI Functions
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  ////////////////////////////////
 
   componentDidMount(){
     this.props.getUser();
@@ -47,6 +79,20 @@ class Dashboard extends Component {
       this.getNewEvents();
     })
   }
+
+  //Stripe Functions
+  onToken = (token) => {
+    token.card = void 0;
+    axios.post('/api/payment', { token, amount: this.state.price /* the amount actually charged*/ } ).then(response => {
+
+    });
+}
+
+  handleChangePrice(val){
+    val *= 100;
+    this.setState({price: val})
+  }
+//////////////////////////////
 
   render() {
     const mappedEvents = this.state.events.map((element, index) => {
@@ -73,7 +119,48 @@ class Dashboard extends Component {
 
         <div className="events-container">
           {mappedEvents}
-        </div>   
+        </div> 
+
+        <div className="donation-container">
+          <div className="donation-sentence">
+            <h1>Help Support Utah Car Meets By</h1>
+          </div>
+
+          <div className="donation-btn">
+          <Button onClick={this.handleClickOpen} size="small" style={style2}>Donating!</Button>
+          <Dialog
+            open={this.state.open}
+            onClose={this.handleClose}
+            aria-labelledby="form-dialog-title"
+          >
+            <DialogTitle id="form-dialog-title">Thank You!</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Utah Car Meet deeply appreciates your donation as it helps keep the site alive!
+              </DialogContentText>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="name"
+                label="Donation Amount"
+                type="number"
+                fullWidth
+                onChange={(event) => this.handleChangePrice(event.target.value)}
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose} color="secondary">
+                Cancel
+              </Button>
+              <StripeCheckout
+                    token={this.onToken}
+                    stripeKey={ 'pk_test_gj2aU1XjTqAocH35XS5o9HAc' }
+                    amount={this.state.price} // The amount displayed at the bottom of the payment form
+                />
+            </DialogActions>
+          </Dialog>
+          </div>
+        </div>
       </div>
     );
   }
