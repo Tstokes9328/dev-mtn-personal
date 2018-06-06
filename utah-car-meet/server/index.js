@@ -51,7 +51,7 @@ app.post('/send/email', (req, res) => {
     let {email, subject, message} = req.body;
     let mail = {
         from: email,
-        to: email,
+        to: 'utahcarmeet@gmail.com',
         subject: subject,
         html: "Email: " + email + "<br/> Subject:" + subject + "<br/> Message: " + message + "<br/> "
     }
