@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.eventpage-container {
+    width: 100%;
+    height: 100vh;
+    background-color: #fafafa;
+}
+
+.event-host-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    height: 30%;
+    width: 30%;
+    left: 2%;
+    top: 15%;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 2px 2px 8px #cfd8dc;
+}
+
+.host-title {
+    display: flex;
+    justify-content: space-around;
+}
+
+.host-title > h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.host-img-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.host-img-container > img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.host-name-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.host-name-container > h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #23abff;
+    font-size: 20px;
+}
+
+
+.weather-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* background: white; */
+    height: 15%;
+    width: 30%;
+    /* top: 47%;
+    left: 2%; */
+    top: 25%;
+    right: 5%;
+    /* border-radius: 3px 3px 3px 3px;
+    box-shadow: 2px 2px 8px #cfd8dc; */
+}
+
+
+.icon-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.icon-container > img {
+    height: 75px;
+    width: 75px;
+}
+
+.temp-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.temp-container > h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
+.city-name-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.city-name-container > h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+}
+
+.city-container-row-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.event-info-container {
+    position: fixed;
+    right: 5%;
+    top: 15%;
+    width: 60%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-info-container > h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+}
+
+.event-info-container > h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    margin-top: 5%;
+    color:  #23abff;
+}
+
+.event-info-container > h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin-top: 3%;
+    color: #23abff;
+}
+
+.event-info-container > h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin-top: 3%;
+    line-height: 1.2;
+}
+
+.attendees-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 32.3%;
+    height: 45%;
+    left: 1%;
+    bottom: 1%;
+    overflow: scroll;
+    
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.attend-btn-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 10%;
+    width: 10%;
+    top: 14%;
+    right: 7%;
+}
+
+.attending-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.attending-container {
+    font-family: 'Roboto', sans-serif;
+}
+
+.attend-event-btn-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.attend-event-btn-container > button {
+    background-color: #23baff;
+        border: none;
+        border-radius: 2px 2px 2px 2px;
+        outline: none;
+        color: white;
+        padding: 12px 29px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;   
+        font-family: 'Roboto', sans-serif;
+        cursor: pointer;
+        box-shadow: 0 4px #cfd8dc;
+}
+
+.attend-event-btn-container > button :hover {
+    background-color: #03a9f4;
+}
+
+.attend-event-btn-container > button :active {
+    background-color: #03a9f4;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.you-are-attending-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.you-are-attending-container > h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: #23abff;
+}
+
+.update-container {
+    position: fixed;
+    z-index: 2;
+    top: 17%;
+    left: 4%;
+}
+
+.update-container > a > button {
+    background-color: #23baff;
+        border: none;
+        border-radius: 2px 2px 2px 2px;
+        outline: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 8px;   
+        font-family: 'Roboto', sans-serif;
+        cursor: pointer;
+        box-shadow: 0 4px #cfd8dc;
+}
+
+.attending-title {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 50%;
+    left: 2%;
+}
+
+.attending-title > h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: #9e9e9e;
+}

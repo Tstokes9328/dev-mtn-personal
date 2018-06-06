@@ -99,3 +99,8 @@ body {
     color: lightgray;
     margin-top: 2.3%;
 }
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}

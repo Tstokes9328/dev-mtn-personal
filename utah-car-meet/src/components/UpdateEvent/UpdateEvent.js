@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 //Reducer Functions
 import {updateTitle, updateLocation, updateDate, updatePicture, updateEventInfo, resetState} from '../../ducks/events';
 
+import Navbar from '../NavBar/Navbar';
+
 class UpdateEvent extends Component {
     updateEvent(){
         let {id} = this.props.match.params;
@@ -17,6 +19,7 @@ class UpdateEvent extends Component {
     render(){
         return(
             <div>
+                <Navbar />
                 Update page
 
                 Title <input type="text" onChange={(event) => {

@@ -22,7 +22,8 @@ import './navbar.css';
 
 const style = {
     color: 'white',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    fontSize: "18px"
 }
 
 class Navbar extends Component {

@@ -11,6 +11,10 @@ import Navbar from '../NavBar/Navbar';
 import EventPageAttendess from '../EventPageAttendees/EventPageAttendees';
 import EventWeather from '../EventWeather/EventWeather';
 
+//StyleSheets
+import './reset.css';
+import './EventPage.css';
+
 class EventPage extends Component {
     constructor(){
         super()
@@ -111,48 +115,60 @@ class EventPage extends Component {
 
         console.log(this.state.attending)
         return(
-            <div>
+            <div className="eventpage-container">
                 <Navbar />
-                Event Page
-                <div>
-                    <img src={weatherIcon} alt="icon image" />
-                    <h1>{this.state.temperature} Degrees</h1>
-                    <h1>{this.state.city_name}</h1>
-                    <h1>{this.state.weather_decription}</h1>
-                </div>
-
-                <div>
-                    <h1>Host: {this.state.host}</h1>
-                    <img src={this.state.host_pic} alt="Host Pic" />
-                </div>
-
-                <div>
-                    <img src={this.state.event_picture} alt="event picture" />
+                <div className="event-info-container">
                     <h1>{this.state.title}</h1>
-                    <h1>{this.state.location}</h1>
-                    <h1>{this.state.date}</h1>
-                    <h3>{this.state.event_info}</h3>
+                    <h2>{this.state.location}</h2>
+                    <h3>{this.state.date}</h3>
+                    <h4>{this.state.event_info}</h4>
+                </div>
+
+                <div className="event-host-container">
+                    <div className="host-title"><h1>Host</h1></div>
+                    <div className="host-img-container"><img src={this.state.host_pic} alt="Host Pic" /></div>
+                    <div className="host-name-container"><h1>{this.state.host}</h1></div>
+                </div>
+
+                <div className="attending-title">
+                    <h1>Attending ({this.state.attendees.length})</h1>
+                </div>
+                    
+                <div className="weather-container">
+                    <div className="city-container-row-2">
+                        <div className="icon-container"><img src={weatherIcon} alt="icon image" /></div>
+                        <div className="temp-container"><h1>{this.state.temperature} &#176;F</h1></div>
+                    </div>
+                </div>
+
+
+
+                    {
+                    !this.state.attending ?
+                    <div className="attend-btn-container">
+                        {/* <div className="attending-container"><h1>Are you Attending?</h1></div> */}
+                        <div className="attend-event-btn-container"><button onClick={() => this.attendEvent()}>Join</button></div>
+                    </div>
+                    :
+                    <div className="attend-btn-container">
+                        {/* <div className="you-are-attending-container">
+                            <h1>You Are Attending!</h1>
+                        </div> */}
+                    </div>
+                    }
 
                     {
                     user.name == this.state.host ?
-                    <Link to={`/update/event/${id}`}><button>Update Info</button></Link>
+                    <div className="update-container">
+                    <Link to={`/update/event/${id}`}><button>Update</button></Link>
+                    </div>
                     :
                     <div />
                     }
-                </div>
 
-                <div>
-                    {
-                    !this.state.attending ?
-                    <div>
-                    <h1>Are you Attending?</h1>
-                    <button onClick={() => this.attendEvent()}>Yes</button>
-                    </div>
-                    :
-                    <h1>You Are Attending!</h1>
-                    }
-                </div>
+                <div className="attendees-container">
                     {mappedAttendees}
+                </div>
             </div>
         )
     }
