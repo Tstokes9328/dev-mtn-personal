@@ -30,7 +30,7 @@ class CreateEvent extends Component {
                 Date<input type="date"
                 onChange={(event) => this.props.updateDate(event.target.value)}/>
 
-                Picture<input type="text" onChange={(event) => this.props.updatePicture(event.target.value)}/>
+                Picture<input type="file" onChange={(event) => this.props.updatePicture(event.target.value)}/>
 
                 Event Info<input type="text" onChange={(event) => this.props.updateEventInfo(event.target.value)}/>
 

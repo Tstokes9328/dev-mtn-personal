@@ -31,7 +31,7 @@ class UpdateEvent extends Component {
                     this.props.updateDate(event.target.value);
                 }}/>
 
-                Event Picture <input type="text" onChange={(event) => {
+                Event Picture <input type="file" onChange={(event) => {
                     this.props.updatePicture(event.target.value);
                 }}/>
 

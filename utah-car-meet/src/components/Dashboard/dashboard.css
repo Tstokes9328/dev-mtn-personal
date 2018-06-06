@@ -62,14 +62,18 @@ body {
         display: inline-block;
         font-size: 16px;   
         font-family: 'Roboto', sans-serif;
+        cursor: pointer;
+        box-shadow: 0 4px #cfd8dc;
 }
 
 .meet-btn-container > a > button:hover {
-    cursor: pointer;
+    background-color: #03a9f4;
 }
 
 .meet-btn-container > a > button:active {
-    transform: translateY(1px);
+    background-color: #03a9f4;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 
@@ -79,6 +83,7 @@ body {
     width: 60%;
     height: 80vh;
     top: 15%;
+    overflow: scroll;
 }
 
 .donation-container {

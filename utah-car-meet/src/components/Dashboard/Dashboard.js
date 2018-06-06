@@ -24,9 +24,6 @@ import TextField from '@material-ui/core/TextField';
 import "./reset.css";
 import "./dashboard.css";
 
-const style = {
-  color: 'black'
-}
 
 const style2 = {
   color: "#23abff"
@@ -99,7 +96,7 @@ class Dashboard extends Component {
       return (
         <Event id={element.id} title={element.title} location={element.location} date={element.date} event_picture={element.event_picture} host={element.host} host_pic={element.host_pic} event_info={element.event} remove={this.removeEvent}/>
       )
-    })
+    }).reverse();
     
     let {id} = this.props.user;
     console.log(this.props)

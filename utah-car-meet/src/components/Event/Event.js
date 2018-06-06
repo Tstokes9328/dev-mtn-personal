@@ -23,7 +23,7 @@ function event(props){
 
             <div className="location-container">
                 {
-                    props.user.name == props.host ?
+                    props.user.name === props.host ?
                     <button onClick={() => props.remove(props.id)}>Delete</button>
                     :
                     <div />
