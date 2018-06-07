@@ -22,7 +22,9 @@ const {
     CLIENT_ID,
     CLIENT_SECRET,
     CALLBACK_URL,
-    EMAIL_PASSWORD
+    EMAIL_PASSWORD,
+    SUCCESS_REDIRECT,
+    FAILURE_REDIRECT
 } = process.env;
 
 const app = express();
@@ -148,8 +150,8 @@ passport.deserializeUser((id, done) => {
 //Auth0 End Points
 app.get('/login', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/dashboard',
-    failureRedirect: 'http://localhost:3000/#/'
+    successRedirect: SUCCESS_REDIRECT,
+    failureRedirect: FAILURE_REDIRECT
 }))
 
 //User End Points 
