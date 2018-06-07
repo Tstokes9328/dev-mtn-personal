@@ -10,6 +10,8 @@ const chalk = require('chalk');
 const nodemailer = require('nodemailer');
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
+
+
 //Controller
 const controller = require('./controller');
 
@@ -35,6 +37,9 @@ massive(CONNECTION_STRING).then(db => {
     console.log(chalk.blue('Connected to Database'))
     app.set('db', db);
 })
+
+//Static Build
+app.use( express.static( `${__dirname}/../build` ) );
 
 //Stripe
 app.post('/api/payment', function(req, res, next){
