@@ -18,6 +18,14 @@ create table if not exists event_attendents (
     on delete cascade
 );
 
+create table if not exists event_chatbox (
+    id serial primary key,
+    username text,
+    message varchar(50),
+    event_id integer references events(id)
+    on delete cascade
+);
+
 create table if not exists users (
     id serial primary key,
     auth_id text,

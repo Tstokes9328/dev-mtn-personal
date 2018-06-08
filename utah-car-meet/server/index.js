@@ -174,5 +174,9 @@ app.get('/event/attendees/:id', controller.getEventAttendees);
 app.post('/event/attendees', controller.attendEvent);
 
 
+//Event_Chatbox End Points
+app.get('/event/chat/:id', controller.getEventChat);
+app.post('/event/chat/message/:id', controller.postChatMessage);
+
 //Server Port
 app.listen(SERVER_PORT, () => console.log(chalk.blue(`Firing on ${SERVER_PORT}`)))

@@ -33,11 +33,20 @@ class EventPage extends Component {
             weather_description: '',
             temp_icon: '',
 
-            attending: false
+            attending: false,
+            chatbox: false,
+
+            chatboxInfo: [],
+            chatboxInputMessage: ''
         }
 
         this.attendEvent = this.attendEvent.bind(this);
         this.getEventAttendees = this.getEventAttendees.bind(this);
+
+        this.chatBoxSwitch = this.chatBoxSwitch.bind(this);
+        this.getEventChat = this.getEventChat.bind(this);
+        this.postChat = this.postChat.bind(this);
+        this.handleChangeChatboxInput = this.handleChangeChatboxInput.bind(this);
     }
 
     componentWillMount(){
@@ -70,11 +79,13 @@ class EventPage extends Component {
             }).catch((error) => console.log(error))
         })
         this.getEventAttendees();
+        this.getEventChat();
     }
 
     componentDidMount(){
         this.props.getUser();
     }
+
 
     attendEvent(){
         let {id} = this.props.match.params;
@@ -101,6 +112,35 @@ class EventPage extends Component {
         })
     }
 
+    
+    chatBoxSwitch(){
+        this.setState({chatbox: !this.state.chatbox})
+    }
+    
+    //ChatBox Functions
+    getEventChat(){
+        let {id} = this.props.match.params;
+        setInterval( () => {
+                axios.get(`/event/chat/${id}`).then((response) => {
+                    this.setState({chatboxInfo: response.data})
+                })
+            }, 1000
+        )
+    }
+
+    postChat(){
+        let {id} = this.props.match.params;
+        let {name} = this.props.user;
+        let {chatboxInputMessage} = this.state;
+        axios.post(`/event/chat/message/${id}`, {name, chatboxInputMessage, id}).then(() => {
+
+        }).catch(error => console.log(error))
+    }
+
+    handleChangeChatboxInput(value){
+        this.setState({chatboxInputMessage: value})
+    }
+
     render(){
         let {id} = this.props.match.params;
         let {user} = this.props;
@@ -109,11 +149,23 @@ class EventPage extends Component {
             return(
                 <EventPageAttendess profile_pic={element.profile_pic} name={element.name}/>
             )
-        })
+        }).reverse();
+
+        const chatboxUserMessage = this.state.chatboxInfo.map((element, index) => {
+            console.log(element)
+            return (
+                <div className="chat-message-container">
+                <h1>{element.name}:</h1>
+                <p>{element.chatboxinputmessage}</p>
+                </div>
+            )
+        }).reverse();
         
+
         const weatherIcon = `http://openweathermap.org/img/w/${this.state.temp_icon}.png`
 
-        console.log(this.state.attending)
+
+        console.log(this.state.chatboxInputMessage)
         return(
             <div className="eventpage-container">
                 <Navbar />
@@ -169,6 +221,31 @@ class EventPage extends Component {
                 <div className="attendees-container">
                     {mappedAttendees}
                 </div>
+
+                <div className="chat-btn-container">
+                    <button onClick={() => this.chatBoxSwitch()}>Chat</button>
+                </div>
+
+                    {
+                        this.state.chatbox ?
+                        <div className="chat-box-container">
+                            <div className="chat-box-title-container">
+                                <h1>Chat Box</h1>
+                            </div>
+
+                            <div className="chat-box-message-container">
+                                <h1>{chatboxUserMessage}</h1>
+                            </div>
+
+
+                            <div className="chat-box-input-container">
+                                <input type="text" placeholder="Type a message.." value={this.state.chatboxInputMessage} onChange={(event) => this.handleChangeChatboxInput(event.target.value)}/>
+                                <button onClick={() => this.postChat()}>Send</button>
+                            </div>
+                        </div>
+                        :
+                        <div />
+                    }
             </div>
         )
     }

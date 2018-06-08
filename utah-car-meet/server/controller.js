@@ -53,5 +53,19 @@ module.exports = {
         req.app.get('db').get_event_attendees([id]).then((attendees) => {
             res.status(200).send(attendees);
         })
+    },
+
+    getEventChat: (req, res) => {
+        let {id} = req.params;
+        req.app.get('db').get_event_chat([id]).then((chat) => {
+            res.status(200).send(chat)
+        })
+    },
+
+    postChatMessage: (req, res) => {
+        let {name, chatboxInputMessage, id} = req.body;
+        req.app.get('db').post_chat([name, chatboxInputMessage, id]).then(() => {
+            res.status(200).send('New Message!')
+        })
     }
 }
