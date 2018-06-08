@@ -1,0 +1,36 @@
+.update-event-container {
+    width: 100%;
+    height: 100vh;
+    background-color: #fafafa;
+}
+
+.update-event-center-container {
+    width: 60%;
+    height: 60%;
+    margin: 7% auto;
+    background: lime;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.update-event-title-container {
+
+}
+
+.update-event-location-container {
+
+}
+
+.update-event-date-container {
+
+}
+
+.update-event-info-container {
+
+}
+
+.update-event-btn-container {
+    
+}
