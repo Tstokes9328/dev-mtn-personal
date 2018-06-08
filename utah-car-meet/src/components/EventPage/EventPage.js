@@ -144,7 +144,7 @@ class EventPage extends Component {
     render(){
         let {id} = this.props.match.params;
         let {user} = this.props;
-
+ 
         const mappedAttendees = this.state.attendees.map((element, index) => {
             return(
                 <EventPageAttendess profile_pic={element.profile_pic} name={element.name}/>
