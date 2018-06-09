@@ -135,6 +135,7 @@ class EventPage extends Component {
         axios.post(`/event/chat/message/${id}`, {name, chatboxInputMessage, id}).then(() => {
 
         }).catch(error => console.log(error))
+        this.setState({chatboxInputMessage: ''})
     }
 
     handleChangeChatboxInput(value){
@@ -238,10 +239,10 @@ class EventPage extends Component {
                             </div>
 
 
-                            <div className="chat-box-input-container">
+                            <form className="chat-box-input-container">
                                 <input type="text" placeholder="Type a message.." value={this.state.chatboxInputMessage} onChange={(event) => this.handleChangeChatboxInput(event.target.value)}/>
-                                <button onClick={() => this.postChat()}>Send</button>
-                            </div>
+                                <button onClick={() => this.postChat()} type="submit">Send</button>
+                            </form>
                         </div>
                         :
                         <div />

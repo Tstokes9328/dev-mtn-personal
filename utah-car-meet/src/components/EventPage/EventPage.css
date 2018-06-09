@@ -3,7 +3,7 @@
 .eventpage-container {
     width: 100%;
     height: 100vh;
-    background-color: #fafafa;
+    background-color: #f2f2f2;
 }
 
 .event-host-container {
@@ -266,10 +266,24 @@
     position: fixed;
     bottom: 5%;
     right: 6%;
-    background: darkviolet;
     width: 5%;
     height: 5%;
     z-index: 3;
+}
+
+.chat-btn-container > button {
+    background-color: #23baff;
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    outline: none;
+    color: white;
+    padding: 9px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;   
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
 }
 
 .chat-box-container {
@@ -281,6 +295,8 @@
     right: 6%;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 2px 2px 8px #cfd8dc;
+    animation-name: increase;
+    animation-duration: .15s;
 }
 
 .chat-box-title-container {
@@ -318,6 +334,21 @@
     width: 72%;
 }
 
+.chat-box-input-container > button {
+    background-color: black;
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    outline: none;
+    color: white;
+    padding: 4px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;   
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
 .chat-message-container {
     width: 35vw;
     height: 25px;
@@ -337,4 +368,21 @@
 .chat-message-container > p {
     font-size: 15px;
     margin-left: 5%;
+}
+
+
+/* -- Animations -- */
+@keyframes increase{
+    0% {
+        width: 0;
+        height: 0;
+    }
+    50% {
+        width: 16%;
+        height: 17%;
+    }
+    100% {
+        width: 35%;
+        height: 34%;
+    }
 }

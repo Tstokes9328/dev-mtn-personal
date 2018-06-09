@@ -25,32 +25,40 @@ class UpdateEvent extends Component {
         return(
             <div className="update-event-container">
                 <Navbar />
+                    <div className="update-header-container">
+                        <h1>Update Event</h1>
+                    </div>
+
                     <div className="update-event-center-container">
                         
                         <div className="update-event-title-container">
-                            Title <input type="text" onChange={(event) => {
+                            <h1>Title</h1>
+                             <input type="text" onChange={(event) => {
                                 this.props.updateTitle(event.target.value);
                             }}/>
                         </div>
 
                         <div className="update-event-location-container">
-                            Location <input type="text" onChange={(event) => {
+                            <h1>Location</h1> 
+                            <input type="text" onChange={(event) => {
                                 this.props.updateLocation(event.target.value);
                             }}/>
                         </div>
 
                         <div className="update-event-date-container">
-                            Date <input type="date" onChange={(event) => {
+                            <h1>Date</h1>
+                            <input type="date" onChange={(event) => {
                                 this.props.updateDate(event.target.value);
                             }}/>
                         </div>
                         
                         <div className="update-event-info-container">
-                            Event Info <input type="text" onChange={(event) => this.props.updateEventInfo(event.target.value)} />
+                            <h1>Event Info</h1> 
+                            <textarea onChange={(event) => this.props.updateEventInfo(event.target.value)}/>
                         </div>
                         
                         <div className="update-event-btn-container">
-                            <button onClick={() => this.updateEvent()}>Submit Update</button>
+                            <button onClick={() => this.updateEvent()}>Update Event</button>
                         </div>
                     </div>
             </div>
