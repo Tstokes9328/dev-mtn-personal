@@ -60,7 +60,7 @@ class UpdateEvent extends Component {
                         </div>
                         
                         <div className="cancel-btn-container">
-                            <Link to={`/event/page/${id}`}><button onClick={() => this.resetState()}>Cancel</button></Link>
+                            <Link to={`/event/page/${id}`}><button>Cancel</button></Link>
                         </div>
 
                         <div className="update-event-btn-container">
