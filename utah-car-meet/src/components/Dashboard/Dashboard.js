@@ -115,6 +115,9 @@ class Dashboard extends Component {
           </div>
         </div>
 
+        <div className="events-header">
+          <h1>Meets</h1>
+        </div>
         <div className="events-container">
           {mappedEvents}
         </div> 

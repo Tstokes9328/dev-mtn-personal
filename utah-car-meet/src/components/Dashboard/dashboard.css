@@ -11,11 +11,26 @@ body {
     background-color: #f2f2f2;
 }
 
+.events-header {
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    top: 12%;
+    right: 47%;
+}
+
+.events-header > h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #23abff;
+    font-size: 50px;
+    font-weight: bold;
+}
+
 .info-container {
     position: relative;
     width: 35%;
     height: 65%;
-    top: 5%;
+    top: 10%;
     left: 3%;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 2px 2px 8px #cfd8dc;
@@ -81,8 +96,8 @@ body {
     position: fixed;
     right: 1%;
     width: 60%;
-    height: 80vh;
-    top: 15%;
+    height: 67vh;
+    top: 20%;
     overflow: scroll;
 }
 
@@ -90,8 +105,8 @@ body {
     position: fixed;
     display: flex;
     justify-content: flex-start;
-    bottom: 10%;
-    left: 6%;
+    bottom: 6%;
+    left: 35%;
 }
 
 .donation-sentence {

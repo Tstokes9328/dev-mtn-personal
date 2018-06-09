@@ -60,7 +60,7 @@ class CreateEvent extends Component {
                         </div>
                         
                         <div className="create-event-btn-container">
-                            <button onClick={() => this.updateEvent()}>Update Event</button>
+                            <button onClick={() => this.newEvent()}>Create Event</button>
                         </div>
                     </div>
                             

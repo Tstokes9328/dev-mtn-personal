@@ -124,7 +124,7 @@ class EventPage extends Component {
                 axios.get(`/event/chat/${id}`).then((response) => {
                     this.setState({chatboxInfo: response.data})
                 })
-            }, 1000
+            }, 500
         )
     }
 
@@ -163,10 +163,11 @@ class EventPage extends Component {
         }).reverse();
         
 
-        const weatherIcon = `http://openweathermap.org/img/w/${this.state.temp_icon}.png`
+        const weatherIcon = `http://openweathermap.org/img/w/${this.state.temp_icon}.png`;
 
 
-        console.log(this.state.chatboxInputMessage)
+        const wholeTemp = Math.floor(this.state.temperature);
+
         return(
             <div className="eventpage-container">
                 <Navbar />
@@ -190,7 +191,7 @@ class EventPage extends Component {
                 <div className="weather-container">
                     <div className="city-container-row-2">
                         <div className="icon-container"><img src={weatherIcon} alt="icon image" /></div>
-                        <div className="temp-container"><h1>{this.state.temperature} &#176;F</h1></div>
+                        <div className="temp-container"><h1>{wholeTemp} &#176;F</h1></div>
                     </div>
                 </div>
 
@@ -223,30 +224,25 @@ class EventPage extends Component {
                     {mappedAttendees}
                 </div>
 
-                <div className="chat-btn-container">
+                {/* <div className="chat-btn-container">
                     <button onClick={() => this.chatBoxSwitch()}>Chat</button>
+                </div> */}
+
+                <div className="chat-box-container">
+                    <div className="chat-box-title-container">
+                        <h1>Message Board</h1>
+                    </div>
+
+                    <div className="chat-box-message-container">
+                        <h1>{chatboxUserMessage}</h1>
+                    </div>
+
+
+                    <div className="chat-box-input-container">
+                        <input type="text" placeholder="Type a message.." value={this.state.chatboxInputMessage} onChange={(event) => this.handleChangeChatboxInput(event.target.value)}/>
+                        <button onClick={() => this.postChat()}>Send</button>
+                    </div>
                 </div>
-
-                    {
-                        this.state.chatbox ?
-                        <div className="chat-box-container">
-                            <div className="chat-box-title-container">
-                                <h1>Chat Box</h1>
-                            </div>
-
-                            <div className="chat-box-message-container">
-                                <h1>{chatboxUserMessage}</h1>
-                            </div>
-
-
-                            <form className="chat-box-input-container">
-                                <input type="text" placeholder="Type a message.." value={this.state.chatboxInputMessage} onChange={(event) => this.handleChangeChatboxInput(event.target.value)}/>
-                                <button onClick={() => this.postChat()} type="submit">Send</button>
-                            </form>
-                        </div>
-                        :
-                        <div />
-                    }
             </div>
         )
     }
