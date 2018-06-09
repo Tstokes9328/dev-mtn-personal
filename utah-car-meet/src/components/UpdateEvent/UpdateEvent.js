@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 //Reducer Functions
 import {updateTitle, updateLocation, updateDate, updatePicture, updateEventInfo, resetState} from '../../ducks/events';
@@ -22,6 +23,7 @@ class UpdateEvent extends Component {
     }
 
     render(){
+        let {id} = this.props.match.params;
         return(
             <div className="update-event-container">
                 <Navbar />
@@ -35,30 +37,34 @@ class UpdateEvent extends Component {
                             <h1>Title</h1>
                              <input type="text" onChange={(event) => {
                                 this.props.updateTitle(event.target.value);
-                            }}/>
+                            }} required/>
                         </div>
 
                         <div className="update-event-location-container">
                             <h1>Location</h1> 
                             <input type="text" onChange={(event) => {
                                 this.props.updateLocation(event.target.value);
-                            }}/>
+                            }} required/>
                         </div>
 
                         <div className="update-event-date-container">
                             <h1>Date</h1>
                             <input type="date" onChange={(event) => {
                                 this.props.updateDate(event.target.value);
-                            }}/>
+                            }} required/>
                         </div>
                         
                         <div className="update-event-info-container">
                             <h1>Event Info</h1> 
-                            <textarea onChange={(event) => this.props.updateEventInfo(event.target.value)}/>
+                            <textarea onChange={(event) => this.props.updateEventInfo(event.target.value)} required/>
                         </div>
                         
+                        <div className="cancel-btn-container">
+                            <Link to={`/event/page/${id}`}><button onClick={() => this.resetState()}>Cancel</button></Link>
+                        </div>
+
                         <div className="update-event-btn-container">
-                            <button onClick={() => this.updateEvent()}>Update Event</button>
+                            <button onClick={(event) => this.updateEvent()}>Update Event</button>
                         </div>
                     </div>
             </div>
@@ -76,4 +82,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {updateDate, updateLocation, updatePicture, updateTitle, updateEventInfo ,resetState})(UpdateEvent);
+export default connect(mapStateToProps, {updateDate, updateLocation, updatePicture, updateTitle, updateEventInfo, resetState})(UpdateEvent);

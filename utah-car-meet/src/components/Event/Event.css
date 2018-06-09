@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 15vh;
+    height: 10vh;
     border-radius: 3px 3px 3px 3px;
     background-color: white;
     margin-bottom: 3%;
@@ -22,11 +22,11 @@
 .host-container > h1 {
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    margin-top: 25%;
+    margin-top: 10%;
 }
 
 .host-container > h6 {
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
     color: #23abff;
     font-family: 'Roboto', sans-serif;
@@ -44,24 +44,24 @@
 .title-container > h1 {
     text-align: left;
     font-family: 'Roboto', sans-serif;
-    font-size: 35px;
+    font-size: 28px;
     margin-top: 2%;
-    margin-left: 3%;
+    margin-left: 6%;
 }
 
 .title-container > h2 {
     text-align: left;
     font-family: 'Roboto', sans-serif;
     color: lightgray;
-    margin-top: 5%;
-    margin-left: 3%;
+    margin-top: 2%;
+    margin-left: 6%;
 }
 
 .title-container > h3 {
     text-align: left;
     font-family: 'Roboto', sans-serif;
     color: lightgray;
-    margin-left: 3%;
+    margin-left: 6%;
     margin-top: 1%;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .location-container > button {
-    margin-top: 30%;
+    margin-top: 20%;
     background-color: #23abff;
     border: none;
     color: white;
@@ -102,7 +102,7 @@
 }
 
 .btn-container > a > button {
-    margin-top: 30%;
+    margin-top: 20%;
     background-color: #23abff;
     border: none;
     color: white;

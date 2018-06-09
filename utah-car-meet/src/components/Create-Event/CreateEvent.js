@@ -37,26 +37,26 @@ class CreateEvent extends Component {
                             <h1>Title</h1>
                              <input type="text" onChange={(event) => {
                                 this.props.updateTitle(event.target.value);
-                            }}/>
+                            }} required/>
                         </div>
 
                         <div className="create-event-location-container">
                             <h1>Location</h1> 
                             <input type="text" onChange={(event) => {
                                 this.props.updateLocation(event.target.value);
-                            }}/>
+                            }} required/>
                         </div>
 
                         <div className="create-event-date-container">
                             <h1>Date</h1>
                             <input type="date" onChange={(event) => {
                                 this.props.updateDate(event.target.value);
-                            }}/>
+                            }} required/>
                         </div>
                         
                         <div className="create-event-info-container">
                             <h1>Event Info</h1> 
-                            <textarea onChange={(event) => this.props.updateEventInfo(event.target.value)}/>
+                            <textarea onChange={(event) => this.props.updateEventInfo(event.target.value)} required/>
                         </div>
                         
                         <div className="create-event-btn-container">
