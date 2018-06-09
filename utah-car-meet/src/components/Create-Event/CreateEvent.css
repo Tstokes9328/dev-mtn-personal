@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.create-meet-container {
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
+    color: darkgray;
+}
+
+.head-container {
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    top: 18%;
+    left: 20%;
+    color: #23abff;
+}
+
+.head-container > h1 {
+    font-size: 30px;
+}
+
+.inside-container {
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+    margin-top: 9%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 3%;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 2px 2px 8px #cfd8dc;
+}
+
+.create-meet-title-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
+.create-meet-title-container > h1 {
+    font-size: 20px;
+}
+
+.create-meet-title-container > input {
+    width: 30vw;
+    height: 5vh;
+    border: 1px #23abff solid;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.create-event-location-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-event-location-container > h1 {
+    font-size: 20px;
+}
+
+.create-event-location-container > input{
+    width: 30vw;
+    height: 5vh;
+    border: 1px #23abff solid;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.create-event-date-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-event-date-container > h1{
+    font-size: 20px;
+}
+
+.create-event-date-container > input {
+    border: 1px #23abff solid;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.create-event-info-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.create-event-info-container > h1{
+    font-size: 20px;
+}
+
+.create-event-info-container > textarea {
+    height: 20vh;
+    width: 30vw;
+    margin-bottom: 3%;
+    border: 1px #23abff solid;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.create-event-btn-container {
+    position: fixed;
+    bottom: 18%;
+    right: 22%;
+}
+
+.create-event-btn-container > button {
+    background-color: #23baff;
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    outline: none;
+    color: white;
+    padding: 12px 29px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;   
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px #cfd8dc;
+}
+
+.create-event-btn-container > button :hover {
+    background-color: #03a9f4;
+}
+
+.cancel-container {
+    position: fixed;
+    bottom: 25%;
+    right: 23.5%;
+}
+
+.cancel-container > a > button {
+    background-color: #23baff;
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    outline: none;
+    color: white;
+    padding: 12px 29px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;   
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px #cfd8dc;
+}
+
+.cancel-container > button :hover {
+    background-color: #03a9f4;
+}
+
+
+/* -- Date Picker -- */
+::-webkit-datetime-edit { padding: .5em; }
+::-webkit-datetime-edit-text { color: #23abff; padding: 0 0.3em; }
+::-webkit-datetime-edit-month-field { color: black; }
+::-webkit-datetime-edit-day-field { color: black; }
+::-webkit-datetime-edit-year-field { color: black; }
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { background: #23abff; }

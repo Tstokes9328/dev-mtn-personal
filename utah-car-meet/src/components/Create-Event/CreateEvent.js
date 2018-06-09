@@ -9,6 +9,10 @@ import {updateTitle, updateLocation, updateDate, updatePicture, updateEventInfo,
 //Other Components
 import Navbar from '../NavBar/Navbar';
 
+//Style Sheets
+import './reset.css';
+import './CreateEvent.css';
+
 class CreateEvent extends Component {
 
     newEvent(){
@@ -21,22 +25,48 @@ class CreateEvent extends Component {
     render(props){
         console.log(this.props)
         return (
-            <div>
+            <div className="create-meet-container">
                 <Navbar />
-                Title<input type="text" onChange={(event) => this.props.updateTitle(event.target.value)}/>
+                <div className="head-container">
+                        <h1>Create Event</h1>
+                    </div>
 
-                Location<input type="text" onChange={(event) => {this.props.updateLocation(event.target.value)}}/>
+                    <div className="inside-container">
+                        
+                        <div className="create-meet-title-container">
+                            <h1>Title</h1>
+                             <input type="text" onChange={(event) => {
+                                this.props.updateTitle(event.target.value);
+                            }}/>
+                        </div>
 
-                Date<input type="date"
-                onChange={(event) => this.props.updateDate(event.target.value)}/>
+                        <div className="create-event-location-container">
+                            <h1>Location</h1> 
+                            <input type="text" onChange={(event) => {
+                                this.props.updateLocation(event.target.value);
+                            }}/>
+                        </div>
 
-                Picture<input type="file" onChange={(event) => this.props.updatePicture(event.target.files[0])}/>
-
-                Event Info<input type="text" onChange={(event) => this.props.updateEventInfo(event.target.value)}/>
-
-                <button onClick={() => this.newEvent()}>Complete</button>
-
-                <Link to="/dashboard"><button onClick={(event) => this.props.resetState()}>Cancel</button></Link>
+                        <div className="create-event-date-container">
+                            <h1>Date</h1>
+                            <input type="date" onChange={(event) => {
+                                this.props.updateDate(event.target.value);
+                            }}/>
+                        </div>
+                        
+                        <div className="create-event-info-container">
+                            <h1>Event Info</h1> 
+                            <textarea onChange={(event) => this.props.updateEventInfo(event.target.value)}/>
+                        </div>
+                        
+                        <div className="create-event-btn-container">
+                            <button onClick={() => this.updateEvent()}>Update Event</button>
+                        </div>
+                    </div>
+                            
+                    <div className="cancel-container">
+                        <Link to="/dashboard"><button onClick={(event) => this.props.resetState()}>Cancel</button></Link>
+                    </div>
             </div>
         )
     }

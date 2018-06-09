@@ -81,7 +81,8 @@ class Dashboard extends Component {
   onToken = (token) => {
     token.card = void 0;
     axios.post('/api/payment', { token, amount: this.state.price /* the amount actually charged*/ } ).then(response => {
-
+      
+      alert('Thank you for the donation!')
     });
 }
 
