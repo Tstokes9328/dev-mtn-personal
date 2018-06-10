@@ -90,7 +90,10 @@ class EventPage extends Component {
     attendEvent(){
         let {id} = this.props.match.params;
         let {profile_pic, name} = this.props.user;
-        axios.post('event/attendees', {profile_pic, name, id}).then(() => {
+
+        const attendent_id = this.props.user.id;
+
+        axios.post('/event/attendees', {profile_pic, name, id, attendent_id}).then(() => {
             this.getEventAttendees();
         }).catch(() => console.log('did not get attendents..'))
         this.setState({attending: true})
@@ -143,15 +146,19 @@ class EventPage extends Component {
     }
 
     render(){
+
+        //Deconstrcution
         let {id} = this.props.match.params;
         let {user} = this.props;
- 
+        
+        //Listing People Attending
         const mappedAttendees = this.state.attendees.map((element, index) => {
             return(
-                <EventPageAttendess profile_pic={element.profile_pic} name={element.name}/>
+                <EventPageAttendess profile_pic={element.profile_pic} name={element.name} attendent_id={element.attendent_id}/>
             )
         }).reverse();
 
+        //Listing the Chat Box messages
         const chatboxUserMessage = this.state.chatboxInfo.map((element, index) => {
             console.log(element)
             return (
@@ -162,12 +169,13 @@ class EventPage extends Component {
             )
         }).reverse();
         
-
+        //Weather Icon Variable From Openwatermap api
         const weatherIcon = `http://openweathermap.org/img/w/${this.state.temp_icon}.png`;
 
-
+        //Round the temperature down and storing it in a variable
         const wholeTemp = Math.floor(this.state.temperature);
 
+        console.log(this.props.user.id)
         return(
             <div className="eventpage-container">
                 <Navbar />
@@ -200,14 +208,10 @@ class EventPage extends Component {
                     {
                     !this.state.attending ?
                     <div className="attend-btn-container">
-                        {/* <div className="attending-container"><h1>Are you Attending?</h1></div> */}
                         <div className="attend-event-btn-container"><button onClick={() => this.attendEvent()}>Join</button></div>
                     </div>
                     :
                     <div className="attend-btn-container">
-                        {/* <div className="you-are-attending-container">
-                            <h1>You Are Attending!</h1>
-                        </div> */}
                     </div>
                     }
 

@@ -44,8 +44,8 @@ module.exports = {
     },
 
     attendEvent: (req, res) => {
-        let {profile_pic, name, id} = req.body;
-        req.app.get('db').new_event_attendee([profile_pic, name, id]).then(() => res.status(200).send('Warning Newcomer!'))
+        let {profile_pic, name, id, attendent_id} = req.body;
+        req.app.get('db').new_event_attendee([profile_pic, name, id, attendent_id]).then(() => res.status(200).send('Warning Newcomer!'))
     },
 
     getEventAttendees: (req, res) => {

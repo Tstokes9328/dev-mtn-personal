@@ -29,7 +29,11 @@
     justify-content: space-evenly;
 }
 
-.name-container > h1 {
+.name-container > a {
+    text-decoration: none;
+}
+
+.name-container > a > h1 {
     color: lightgray;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;

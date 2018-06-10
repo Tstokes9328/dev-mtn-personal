@@ -100,7 +100,8 @@ class Dashboard extends Component {
     }).reverse();
     
     let {id} = this.props.user;
-    console.log(this.props)
+
+    console.log(this.props.match)
 
     return (
       <div className="dash-container">

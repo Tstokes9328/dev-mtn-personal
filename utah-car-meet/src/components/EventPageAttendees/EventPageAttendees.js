@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 //Style Sheet
 import './EventPageAttendees.css';
@@ -12,7 +13,7 @@ export default function eventPageAttendees(props){
             </div>
 
             <div className="name-container">
-                <h1>{name}</h1>
+                <Link to={`/profile/${props.attendent_id}`}><h1>{name}</h1></Link>
             </div>
         </div>
     )
