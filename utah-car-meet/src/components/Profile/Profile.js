@@ -38,26 +38,31 @@ class Profile extends Component {
     return (
         <div className="profile-container">
           <Navbar />
+            <div className="inner-profile-container">
+              <div className="personal-info-container">
+                <div className="personal-pic-container">
+                  <img src={this.state.profileInfo[0].profile_pic} alt="profile pic" />
+                </div>
+                <h1>{this.state.profileInfo[0].name}</h1>
+                <h2>{this.state.profileInfo[0].location}</h2>
+                <h3>{this.state.profileInfo[0].age} yrs</h3>
+              </div>
 
-          <div className="profile-pic-container">
-            <img src={this.state.profileInfo[0].profile_pic} alt="profile pic" />
-          </div>
+              <div className="car-info-container">
+                <div className="car-info-header">
+                  <h1>CAR INFO</h1>
+                </div>
+                <div className="car-make-container">
+                  <h1>{this.state.profileInfo[0].car_make}</h1>
+                  <h2>{this.state.profileInfo[0].year}</h2>
+                  <h3>{this.state.profileInfo[0].car_name}</h3>
+                </div>
 
-          <div className="inner-profile-container">
-            <div className="cover-photo-container">
-              <img src={this.state.profileInfo[0].pic_one} alt="cover photo"/>
+                <div className="car-pic-container">
+                  <img src={this.state.profileInfo[0].pic_one} alt="car pic" />
+                </div>
+              </div>
             </div>
-
-            <div className="profile-name-container">
-              <h1>{this.state.profileInfo[0].name}</h1>
-            </div>
-
-            <div className="profile-user-info-container">
-              <h1>{this.state.profileInfo[0].location}</h1>
-              <h2>{this.state.profileInfo[0].age}</h2>
-            </div>
-
-          </div>
           <Link to="/update/userinfo"><button>Update</button></Link>
         </div>
     );

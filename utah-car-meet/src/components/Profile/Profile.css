@@ -8,67 +8,106 @@
 }
 
 .inner-profile-container {
-    width: 50%;
-    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    width: 60%;
+    height: 55vh;
     margin: auto;
-    margin-top: 5%;
     background-color: white;
+    margin-top: 10%;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 2px 2px 8px #cfd8dc;
+}
+
+.personal-info-container {
     display: flex;
     flex-direction: column;
-    border: 3px solid lightgray;
-}
-
-.profile-pic-container {
-    position: fixed;
-    width: 18%;
-    height: 23%;
-    border-radius: 50%;
-    background: darkslategrey;
-    top: 36%;
-    left: 40.8%;
-    border: 3px solid lightgray;
-}
-
-.profile-pic-container > img {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-}
-
-.cover-photo-container {
-    display: flex;
-    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
-    width: 100%;
-    height: 30vh;
-    border-bottom: 3px solid lightgray;
+    width: 35%;
+    height: 100%;
+    background-color: white;
+    border-right: 1px solid lightgray;
 }
 
-.cover-photo-container > img{
-    width: 100%;
-    max-height: 100%;
-}
-
-.profile-name-container {
+.personal-pic-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    height: 20vh;
-    align-items: flex-end;
+    justify-content: space-around;
+    width: 75%;
+    height: 40%;
+    border: 3px solid lightgray;
+    border-radius: 50%;
 }
 
-.profile-name-container > h1 {
+.personal-pic-container > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.personal-info-container > h1{
     font-size: 30px;
     color: #23abff;
-    margin-bottom: 20px;
 }
 
-.profile-user-info-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 15vh;
+.personal-info-container > h2 {
     font-size: 25px;
     color: darkgray;
+}
+
+.personal-info-container > h3 {
+    font-size: 25px;
+    color: darkgray;
+}
+
+.car-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.car-info-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    margin-top: 25px;
+}
+
+.car-info-header > h1 {
+    font-size: 35px;
+    color: darkgray;
+    margin-left: 10px;
+}
+
+.car-make-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    font-size: 25px;
+    color: darkgray;
+    margin-top: 25px;
+}
+
+.car-make-container > h1 {
+    color: #23abff;
+}
+
+.car-pic-container {
+    width: 90%;
+    height: 35vh;
+    margin: 25px;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.car-pic-container > img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 3px 3px 3px 3px;
 }
