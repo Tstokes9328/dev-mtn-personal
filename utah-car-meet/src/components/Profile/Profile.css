@@ -1,165 +1,74 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-body {
+.profile-container {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
+    background: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
 }
 
-.personal-info-container {
-    display: inline-block;
-    width: 100%;
-    margin-top: 10px;
+.inner-profile-container {
+    width: 50%;
+    height: 75vh;
+    margin: auto;
+    margin-top: 5%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid lightgray;
 }
 
-.personal-info-card {
-    width: 90%;
-    height: 85vh;
-    margin: 0 auto;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 1px 1px 5px black;
-    padding-top: 15px;
-    background: #e0e0e0;
+.profile-pic-container {
+    position: fixed;
+    width: 18%;
+    height: 23%;
+    border-radius: 50%;
+    background: darkslategrey;
+    top: 36%;
+    left: 40.8%;
+    border: 3px solid lightgray;
 }
 
-.img-container {
-    float: left;
-    width: 400px;
-    height: 400px;
-    margin-left: 20px;
-    margin-top: 10px;
-    border: 1px solid black;
-    border-radius: 5px 5px 5px 5px;
-}
-
-.img-container > img {
+.profile-pic-container > img {
     height: 100%;
     width: 100%;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 50%;
 }
 
-.car-pics-container {
-    display: block;
-    margin-top: 10px;
+.cover-photo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
     height: 30vh;
+    border-bottom: 3px solid lightgray;
 }
 
-.car-pics-inner-container {
+.cover-photo-container > img{
+    width: 100%;
+    max-height: 100%;
+}
+
+.profile-name-container {
     display: flex;
-    justify-content: space-around;
-    height: 100%;
-    width: 62%;
-    margin-left: 37%;
+    flex-direction: row;
+    justify-content: center;
+    height: 20vh;
+    align-items: flex-end;
 }
 
-
-.pic-container {
-    width: 225px;
-    height: 100%;
-    border: 1px solid black;
-    border-radius: 5px 5px 5px 5px;
+.profile-name-container > h1 {
+    font-size: 30px;
+    color: #23abff;
+    margin-bottom: 20px;
 }
 
-.pic-container > img {
-    height: auto;
-    max-width: 100%;
-}
-
-.inner-info-container {
+.profile-user-info-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    width: 62%;
-    height: 48vh;
-    margin-left: 37%;
-    margin-top: 15px;
-}
-
-.inner-left-container {
-    width: 48%;
-    height: 100%;
-    border-radius: 5px 5px 5px 5px;
-}
-
-.inner-right-container {
-    width: 48%;
-    height: 100%;
-    border-radius: 5px 5px 5px 5px;
-}
-
-.info-title {
-    width: 100%;
-    height: 5vh;
-    border-bottom: 1px solid black;
-}
-
-.info-title > h2 {
-    text-align: center;
-    font-family: 'Roboto', sans-serif; 
-    font-size: 20px;
-}
-
-.car-bio-title {
-    width: 100%;
-    height: 5vh;
-    border-bottom: 1px solid black;
-}
-
-.car-bio-title > h2 {
-    text-align: center;
-    font-family: 'Roboto', sans-serif; 
-    font-size: 20px;
-}
-
-.car-bio-container {
-    height: 100%;
-    width: 100%;
-    word-wrap: normal;
-    padding-top: 10px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-}
-
-.name-content {
-    display: block;
-    width: 100%;
-    height: 5vh;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.location-content {
-    display: block;
-    width: 100%;
-    height: 5vh;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.age-content {
-    display: block;
-    width: 100%;
-    height: 5vh;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.car-content {
-    display: block;
-    width: 100%;
-    height: 5vh;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.year-content {
-    display: block;
-    width: 100%;
-    height: 5vh;
-    text-align: center;
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    height: 15vh;
+    font-size: 25px;
+    color: darkgray;
 }

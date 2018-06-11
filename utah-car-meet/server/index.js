@@ -178,5 +178,8 @@ app.post('/event/attendees', controller.attendEvent);
 app.get('/event/chat/:id', controller.getEventChat);
 app.post('/event/chat/message/:id', controller.postChatMessage);
 
+//Profile End Points
+app.get('/users/profile/:id', controller.getUserProfile);
+
 //Server Port
 app.listen(SERVER_PORT, () => console.log(chalk.blue(`Firing on ${SERVER_PORT}`)))

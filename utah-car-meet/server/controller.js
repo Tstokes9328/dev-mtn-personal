@@ -67,5 +67,12 @@ module.exports = {
         req.app.get('db').post_chat([name, chatboxInputMessage, id]).then(() => {
             res.status(200).send('New Message!')
         })
+    },
+
+    getUserProfile: (req, res) => {
+        let {id} = req.params;
+        req.app.get('db').get_user_profile([id]).then((userInfo) => {
+            res.status(200).send(userInfo)
+        })
     }
 }

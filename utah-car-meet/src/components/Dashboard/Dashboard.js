@@ -101,7 +101,6 @@ class Dashboard extends Component {
     
     let {id} = this.props.user;
 
-    console.log(this.props.match)
 
     return (
       <div className="dash-container">

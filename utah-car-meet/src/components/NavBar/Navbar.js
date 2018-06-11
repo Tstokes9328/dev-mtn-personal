@@ -96,7 +96,7 @@ class Navbar extends Component {
 
             <div className="nav-picture">
                 <Avatar alt="Navigation Picture" src={profile_pic}/>
-                <Button><Link to={`/profile/${id}`} style={style}>Profile</Link></Button>
+                {/* <Button><Link to={`/profile/${id}`} style={style}>Profile</Link></Button> */}
             </div>
 
             <div className="nav-list">
